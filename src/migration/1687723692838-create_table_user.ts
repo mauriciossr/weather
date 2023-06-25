@@ -4,14 +4,13 @@ export class CreateTableUser1687723692838 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     queryRunner.query(`
             CREATE TABLE public.user (
-                id integer NOT NULL,
+                id integer primary key NOT NULL,
                 name character varying NOT NULL,
                 email character varying NOT NULL,
                 phone character varying NOT NULL,
-                password character varying NOT NULL
-                created_at timestamp wihtout time zone DEFAULT now() NOT NULL,
-                updated_at timestamp wihtout time zone DEFAULT now() NOT NULL,
-                primary_key (id)
+                password character varying NOT NULL,
+                created_at timestamp without time zone DEFAULT now() NOT NULL,
+                updated_at timestamp without time zone DEFAULT now() NOT NULL
             );
 
             CREATE SEQUENCE public.user_id_seq
